@@ -33,7 +33,6 @@ import { headerInterceptor } from './shared/Interceptors/header.interceptor';
     ToastrModule.forRoot(),
     LoginModule,
     ReactiveFormsModule,
-    
   ],
   providers:[
     {

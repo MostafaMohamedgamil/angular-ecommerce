@@ -11,11 +11,8 @@ import { Title } from '@angular/platform-browser';
   styleUrl: './changepass.component.scss'
 })
 export class ChangepassComponent {
-
-
   constructor(private _Auth: AuthService, private _toastr: ToastrService, private title: Title) {
     this.setTitle('Change Pass');
-
   }
   setTitle(newTitle: string) {
     this.title.setTitle(newTitle);
@@ -35,11 +32,9 @@ export class ChangepassComponent {
     ]),
   })
 
-
   updatePassword() {
     if (this.passForm.valid) {
       this._Auth.updateUserPass(this.passForm.value).subscribe({
-
         next: (res) => {
           console.log("res Pass Data", res);
           this.passForm.reset()

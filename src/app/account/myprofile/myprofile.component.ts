@@ -10,12 +10,11 @@ import { Title } from '@angular/platform-browser';
   styleUrl: './myprofile.component.scss'
 })
 export class MyprofileComponent {
-  constructor(private _Auth: AuthService, private toastr: ToastrService,private title:Title) { 
-
+  constructor(private _Auth: AuthService, private toastr: ToastrService, private title: Title) {
     this.setTitle('My Profile');
   }
 
-   setTitle(newTitle: string) {
+  setTitle(newTitle: string) {
     this.title.setTitle(newTitle);
   }
 
@@ -31,18 +30,16 @@ export class MyprofileComponent {
       Validators.pattern(/^01[0125][0-9]{8}$/),
     ]),
   });
-  
+
   updateData(form: FormGroup) {
     if (form.valid) {
       console.log("Form Data: ", form.value); // عرض البيانات قبل الإرسال
       this._Auth.updateUserData(form.value).subscribe({
         next: (res) => {
-          console.log("Response: ", res); // عرض الرد عند نجاح الطلب
           this.toastr.success('Data Has Updated!', res.message);
           // يمكنك هنا تحديث localStorage
         },
         error: (err) => {
-          console.error("Error: ", err); // عرض الخطأ في حال وجوده
           this.toastr.error('Data Has Error', err.message || 'Unknown error occurred');
         }
       })

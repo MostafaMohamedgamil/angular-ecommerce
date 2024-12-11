@@ -22,18 +22,11 @@ export class AuthService {
     }
   }
 
-
-
-
   decodeUserData() {
     let encodeToken = JSON.stringify(localStorage.getItem('token'));
     let decodeToken: any = jwtDecode(encodeToken)
-    console.log("decodeToken", decodeToken);
     this.userData.next(decodeToken);
-
-
   }
-
 
   logOut() {
     localStorage.removeItem('token')
@@ -41,13 +34,12 @@ export class AuthService {
     localStorage.removeItem('userData')
     this.userData.next(null)
     this._Router.navigate(['/login']);
-
   }
+
   register(userData: object): Observable<any> {
     const baseUrl = environment.BASE_URL + 'auth/signup'
     return this._HttpClient.post(baseUrl, userData)
     // return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signup`, userData)
-
   }
 
   login(userData: object): Observable<any> {
@@ -67,10 +59,6 @@ export class AuthService {
     // return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${this.userId}`)
   }
 
-
-
-
-
   updateUserData(userData: any): Observable<any> {
     const baseUrl = environment.BASE_URL + `users/updateMe/`
     return this._HttpClient.put(baseUrl, userData,
@@ -78,7 +66,6 @@ export class AuthService {
         headers: this.headers
       }
     )
-
     // return this._HttpClient.put(`https://ecommerce.routemisr.com/api/v1/users/updateMe/`,
     //   userData,
     //   {
@@ -94,7 +81,6 @@ export class AuthService {
         headers: this.headers
       }
     )
-
     // return this._HttpClient.put(`https://ecommerce.routemisr.com/api/v1/users/changeMyPassword`,
     //   userPass,
     //   {
@@ -102,7 +88,6 @@ export class AuthService {
     //   }
     // )
   }
-
 
   userAddress(userData: any): Observable<any> {
     return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/addresses`,
@@ -112,7 +97,6 @@ export class AuthService {
       }
     )
   }
-
 
   getUserAddress(): Observable<any> {
     return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/addresses`,
@@ -127,9 +111,7 @@ export class AuthService {
         headers: this.headers,
       }
     )
-
   }
-
 
   forgetPass(userData: any): Observable<any> {
     return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords`,

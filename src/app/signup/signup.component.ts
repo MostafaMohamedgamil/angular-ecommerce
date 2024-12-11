@@ -43,7 +43,6 @@ export class SignupComponent {
 
   handelSubmit(registerForm: FormGroup) {
     this.isLoadind = true;
-
     if (registerForm.valid) {
       this._AuthService.register(registerForm.value).subscribe({
         next: (res) => {

@@ -46,8 +46,6 @@ export class CartService {
     );
   }
 
-
-
   getLoggedUserCart(): Observable<any> {
     const BASE_URL = environment.BASE_URL + 'cart';
     return this._HttpClient.get(BASE_URL, {

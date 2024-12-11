@@ -1,10 +1,5 @@
-
-
-
 <swiper [slidesPerView]="4" [loop]="true">
-    <ng-template swiperSlide class="m-2" *ngFor="let pro of allproduct">
-      
-        
+    <ng-template swiperSlide class="m-2" *ngFor="let pro of allproduct">        
         <div class="img position-relative overflow-hidden ">
             <a title="img link" [routerLink]="['/allproducts/productdetalies',pro._id]">
                 <img class="class rounded" [src]="pro.imageCover" alt="">
@@ -40,13 +35,6 @@
             <i class="ri-star-s-fill"></i>
             <i class="ri-star-s-fill"></i>
         </div>
-
-
-
-
-
-
-
     </ng-template>
   </swiper>
 

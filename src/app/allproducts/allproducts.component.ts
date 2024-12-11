@@ -20,7 +20,6 @@ export class AllproductsComponent {
    setTitle(newTitle: string) {
     this.title.setTitle(newTitle);
   }
-
   
   ngOnInit(): void {
     this.productsData$ = this._AllproductService.getAllProducts()

@@ -41,7 +41,6 @@ export class CheckoutComponent {
     window.location.href = url
   }
 
-
   handelSubmit() {
     if (this.form.invalid) {
       return console.log('invalid form');

@@ -6,7 +6,7 @@
 
 <nav class="navbar navbar-expand-lg bg-transparent border-bottom border-1 border-secondary">
   <div class="container">
-    <a title="navigate link" class="navbar-brand " href="#">
+    <a title="navigate link" class="navbar-brand " routerLink="/home">
       <h2 class="fw-bold">
         Exclusive
       </h2>
@@ -58,35 +58,28 @@
           <div class="btn-group me-5" dropdown>
             <button title="btn about dropdown" id="button-basic" dropdownToggle type="button" class="btn ps-0 rounded-5"
               aria-controls="dropdown-basic">
-
               <i class="ri-user-line text-black"></i>
               <span class="caret"></span>
-
             </button>
             <ul class="" id="dropdown-basic" *dropdownMenu class="dropdown-menu trans mt-1 " role="menu"
               aria-labelledby="button-basic">
-
               <li role="menuitem">
                 <a title="navigate link" class="dropdown-item d-flex align-items-center gap-3" routerLink="account">
                   <i class="ri-user-line"></i>
                   Manage My Account
                 </a>
               </li>
-
               <li role="menuitem">
                 <a title="navigate link" class="dropdown-item  d-flex align-items-center gap-3" routerLink="#">
                   <i class="ri-archive-2-line"></i>
                   My Order</a>
               </li>
-
               <li (click)="logout()" role="menuitem">
                 <a title="navigate link" class="dropdown-item  d-flex align-items-center gap-3" routerLink="#">
                   <i class="ri-logout-box-line"></i>
                   Logout</a>
               </li>
-
             </ul>
-
           </div>
         </li>
       </ul>

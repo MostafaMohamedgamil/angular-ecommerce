@@ -2,14 +2,10 @@
     <div class="row">
         <!-- Slider Images -->
         <div class="col-md-2" *ngIf="productDetalis && productDetalis.images.length">
-
             <swiper [direction]="'vertical'" [slidesPerView]="3" [autoHeight]="true" [spaceBetween]="20">
-
                 <ng-template swiperSlide *ngFor="let img of productDetalis.images">
                     <img role="button" (click)="imagePath=img"
                         class=" w-100 h-100 object-fit-contain slider-images mb-1" [src]="img" alt="sliderimages">
-                    <!-- <img (click)="imagePath = img" class="slider-images mb-1"  [src]="img"
-                        alt="sliderimages"> -->
                 </ng-template>
             </swiper>
         </div>
@@ -17,11 +13,7 @@
         <!-- Main Image -->
         <div class="col-md-5">
             <img class="custom-height-image " [src]="imagePath" alt="imageCover">
-
-            <!-- <img id="bigImage" class="custom-height-image " [src]="imagePath ? imagePath : productDetalis?.imageCover" alt="imageCover"> -->
         </div>
-
-
 
         <!-- productDetalis -->
         <div class="col-md-5">
@@ -56,12 +48,13 @@
                 </p>
                 <span class="text-success">In Stock</span>
             </div>
-
             <h5 class="fw-normal mt-2 mb-3">${{productDetalis?.price}}</h5>
-            <p class="fw-normal mb-3">{{productDetalis?.description|seemore:10}}</p>
+            <p class="fw-normal mb-3">{{isExpanded?productDetalis?.description:(productDetalis?.description |
+                slice:0:5)+'...'}} <span role="button" class="text-danger" (click)="toggleDescription()">
+                    {{isExpanded?'Read Less':'Read More'}}</span></p>
 
+            <!-- <p class="fw-normal mb-3">{{productDetalis?.description|seemore:10}}</p> -->
             <hr class="mb-3">
-
             <div class="position-relative mb-3 ">
                 <span>Colours: </span>
                 <span class="color position-absolute"></span>
@@ -70,32 +63,28 @@
 
             <div class="d-flex align-items-center gap-3 mb-4">
                 <span>Size: </span>
-                
-
-                    <div class="d-flex justify-content-center">
-                        <div class="form-check ">
-                            <input class="form-check-input" type="radio" name="size" id="sizeXS" value="XS">
-                            <label class="poppinsFont form-check-label" for="sizeXS">XS</label>
-                        </div>
-                        <div class="form-check ">
-                            <input class="form-check-input" type="radio" name="size" id="sizeS" value="S">
-                            <label class="poppinsFont form-check-label" for="sizeS">S</label>
-                        </div>
-                        <div class="form-check ">
-                            <input class="form-check-input" type="radio" name="size" id="sizeM" value="M" checked>
-                            <label class="poppinsFont form-check-label" for="sizeM">M</label>
-                        </div>
-                        <div class="form-check ">
-                            <input class="form-check-input" type="radio" name="size" id="sizeL" value="L">
-                            <label class="poppinsFont form-check-label" for="sizeL">L</label>
-                        </div>
-                        <div class="form-check ">
-                            <input class="form-check-input" type="radio" name="size" id="sizeXL" value="XL">
-                            <label class="poppinsFont form-check-label" for="sizeXL">XL</label>
-                        </div>
+                <div class="d-flex justify-content-center">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="radio" name="size" id="sizeXS" value="XS">
+                        <label class="poppinsFont form-check-label" for="sizeXS">XS</label>
                     </div>
-
-
+                    <div class="form-check ">
+                        <input class="form-check-input" type="radio" name="size" id="sizeS" value="S">
+                        <label class="poppinsFont form-check-label" for="sizeS">S</label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="radio" name="size" id="sizeM" value="M" checked>
+                        <label class="poppinsFont form-check-label" for="sizeM">M</label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="radio" name="size" id="sizeL" value="L">
+                        <label class="poppinsFont form-check-label" for="sizeL">L</label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="radio" name="size" id="sizeXL" value="XL">
+                        <label class="poppinsFont form-check-label" for="sizeXL">XL</label>
+                    </div>
+                </div>
             </div>
 
             <div class="d-flex justify-content-around">

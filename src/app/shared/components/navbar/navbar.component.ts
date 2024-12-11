@@ -12,7 +12,6 @@ export class NavbarComponent {
   logout() {
     this._AuthService.logOut();
   }
-
   // by default to logins
   islogin: boolean = false;
   constructor(private _AuthService: AuthService, private _CartService: CartService) {
@@ -21,13 +20,11 @@ export class NavbarComponent {
         this.cartNumber=value
       }
     })
-
     if (_AuthService.userData != null) {
       this.islogin = true;
     } else {
       this.islogin = false;
     }
-
     _AuthService.userData.subscribe({
       next: () => {
         if (_AuthService.userData.getValue() !== null) {

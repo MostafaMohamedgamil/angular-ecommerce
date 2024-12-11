@@ -13,7 +13,6 @@ export class FlashsalesaliderComponent {
   constructor(private _AllproductService: AllproductService) {
     _AllproductService.getAllProducts().subscribe({
       next: (res) => {
-        // console.log(`res.data`, res.data);
         this.allproduct = res.data.slice(5, 10);
       },
       error: (err) => {

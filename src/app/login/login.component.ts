@@ -9,28 +9,21 @@ import { Title } from '@angular/platform-browser';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-
   constructor(private _AuthService: AuthService, private _Router: Router, private title: Title) {
     this.setTitle('Login Page');
   }
-
   setTitle(newTitle: string) {
     this.title.setTitle(newTitle);
   }
-
   isLoadind: boolean = false;
   apiError: string = ""
   loginForm: FormGroup = new FormGroup({
-    // Validation
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Z][a-d0-9]{5,10}$/)]), //A123a0
-
+    password: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Z][a-d0-9]{5,10}$/)]), //E12345
   });
 
   handelLogIn(loginForm: FormGroup) {
     this.isLoadind = true;
-
-
     if (loginForm.valid) {
       //register
       this._AuthService.login(loginForm.value).subscribe({
@@ -42,7 +35,6 @@ export class LoginComponent {
             this._AuthService.decodeUserData();
             this.isLoadind = false;
             this._Router.navigate(['/home']);
-            // Navigate toLoginPage
           }
         },
         error: (err) => {
@@ -50,14 +42,7 @@ export class LoginComponent {
           this.apiError = err.error.errors.msg
           console.log("err", err)
         }
-
-
       })
     }
-
-
   }
-
-
-
 }

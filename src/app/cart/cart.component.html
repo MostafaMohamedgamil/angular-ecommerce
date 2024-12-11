@@ -4,7 +4,6 @@
            makes a sticky, sweet treat with just a hint
            of salt that you'll keep coming back for.">
 <div *ngIf="cartData$ | async as myData">
-
     <div class="container  toMarginTopBottom">
         <div>
             <div class="row text-center  custom-shadow  p-3 mb-3">
@@ -13,7 +12,6 @@
                 <div class="col-3 ">Quantity</div>
                 <div class="col-3 ">Subtotal</div>
             </div>
-
             <div *ngFor="let product of myData.data.products" class="row text-center  custom-shadow p-3 mb-3">
                 <div class="col-3 ">
                     <div class="img d-flex align-items-center gap-2">

@@ -25,11 +25,9 @@ export class HomeComponent {
       },
     });
   }
-
   setTitle(newTitle: string) {
     this.title.setTitle(newTitle);
   }
-
   ngOnInit(): void {
     setInterval(() => {
       this.seconds--;

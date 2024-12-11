@@ -5,11 +5,9 @@ import { NotfoundComponent } from './shared/components/notfound/notfound.compone
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  // { path: 'home',canActivate:[authguardGuard], component: HomeComponent },
 
   {
     path: 'home',
-    // canActivate: [authguardGuard],
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
@@ -78,7 +76,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./signup/signup.module').then((m) => m.SignupModule),
   },
-  
+
 
   // { path: 'Wishlist',canActivate:[authguardGuard], component: WishlistComponent },
   // { path: 'productdetalies/:id',canActivate:[authguardGuard], component: ProductdetaliesComponent },
@@ -89,7 +87,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash: true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
